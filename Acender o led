@@ -1,0 +1,33 @@
+const int PIN_LED = 4;
+
+
+
+int numero;
+
+
+void setup() {
+
+
+   Serial.begin(115200);
+}
+
+
+void loop() 
+{
+   if(Serial.available())
+   {
+      numero = Serial.parseInt();
+      if(numero == 1)
+      {
+         Serial.println("Ligado!");
+         digitalWrite(PIN_LED, HIGH);
+         pinMode(PIN_LED,HIGH);
+      } 
+      if(numero == 2) 
+      {
+         Serial.println("Desligado!");
+         digitalWrite(PIN_LED, LOW);
+         pinMode(PIN_LED,LOW);
+      }
+   } 
+}
